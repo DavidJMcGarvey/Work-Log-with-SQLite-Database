@@ -1,24 +1,24 @@
-from entries import Entry
+from entry import Entry
 
 
 def start_menu():
     """
     Opens menu with user options
     """
-    while True:
+    menu_active = True
+    while menu_active:
         print("\na) Add New Entry"
               "\nb) Search Existing Entry"
               "\nc) Quit Program\n")
         task = input("> ")
 
         if task.lower() == 'a':
-            new_entry = Entry()
-            # add_entry()
+            pass
         elif task.lower() == 'b':
             search_menu()
         elif task.lower() == 'c':
             print("Thanks for using the work log!")
-            break
+            menu_active = False
         else:
             print("That was not an option")
 

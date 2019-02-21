@@ -71,3 +71,4 @@ def get_datetime(date):
     fmt = '%Y-%m-%d'
     return datetime.datetime.strptime(date, fmt)
 
+
