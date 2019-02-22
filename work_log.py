@@ -1,26 +1,28 @@
-from entry import Entry
+"""Main page of program where user menu is activated"""
+import entry
+import search_functions
 
 
 def start_menu():
     """
     Opens menu with user options
     """
-    menu_active = True
-    while menu_active:
+    active_entry = True
+
+    while active_entry:
         print("\na) Add New Entry"
               "\nb) Search Existing Entry"
               "\nc) Quit Program\n")
         task = input("> ")
-
         if task.lower() == 'a':
-            pass
+            entry.Entry()
         elif task.lower() == 'b':
-            search_menu()
+            search_functions.search_menu()
         elif task.lower() == 'c':
             print("Thanks for using the work log!")
-            menu_active = False
+            active_entry = False
         else:
-            print("That was not an option")
+            print("\nThat was not an option")
 
 
 if __name__ == '__main__':
