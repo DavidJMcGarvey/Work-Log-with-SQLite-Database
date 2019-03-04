@@ -1,5 +1,5 @@
 """Search menu and search functions"""
-import entry
+import work_log
 
 
 def red_err(message):
@@ -47,122 +47,20 @@ def search_menu():
             print(red_err("That was not an option"))
 
 
+def search_employee():
+    """Search database by employee name"""
+
+
 def search_date():
-    """
-    Search based on exact date
-    """
-    search = input("\nPlease select desired date using YYYY-MM-DD format: ")
-    search = (search + ' 00:00:00')
-    entries = entry.db.select()
-    results = []
-
-    for row in entries:
-        if search == row['date']:
-            result = row
-            results.append(row)
-        elif search != row['date'] and results == []:
-            result = None
-
-    if not result:
-        print(red_err("\nSorry, date not found. Please try again."))
-    else:
-        display_entries(results)
-
-    return None
+    """Search database by date"""
 
 
 def search_time():
-    """
-    Search based on minutes spent on task
-    """
-    search = input("\nPlease type the minutes spent on desired task: ")
-    entries = open_csv()
-    results = []
-
-    for row in entries:
-        if search == row['time']:
-            result = row
-            results.append(row)
-        elif search != row['time'] and results == []:
-            result = None
-
-    if not result:
-        print(red_err("\nSorry, no entries took that amount of time. "
-                      "Please try again."))
-    else:
-        display_entries(results)
-
-    return None
+    """Search database by time in minutes"""
 
 
 def search_exact():
-    """
-    Search based on exact keyword
-    """
-    search = input("Please select desired keyword: ")
-    entries = open_csv()
-
-    results = []
-    for row in entries:
-        if search == row['name']:
-            result = row
-            results.append(row)
-        elif search == row['note']:
-            result = row
-            results.append(row)
-        elif search != row['name'] and results == []:
-            result = None
-        elif search != row['note'] and results == []:
-            result = None
-
-    if result:
-        display_entries(results)
-    else:
-        print(red_err("\nSorry, no keyword found. Please try again."))
-
-    return None
+    """Search database by an exact keyword"""
 
 
-def search_pattern():
-    """
-    Search based on regex pattern
-    """
-    search = input("Please select desired regex pattern: ")
-    entries = open_csv()
 
-    search = r'' + search
-    results = []
-    for row in entries:
-        if re.search(search, row['name']):
-            result = row
-            results.append(row)
-        elif search == row['note']:
-            result = row
-            results.append(row)
-        elif search != row['name'] and results == []:
-            result = None
-        elif search != row['note'] and results == []:
-            result = None
-
-    if result:
-        display_entries(results)
-    else:
-        print(red_err("\nSorry, nothing found with that pattern. "
-                      "Please try again."))
-
-    return None
-
-
-def show_all():
-    """
-    Shows all entries
-    """
-    entries = open_csv()
-    results = []
-
-    for row in entries:
-        result = row
-        results.append(result)
-    display_entries(results)
-
-    return None
