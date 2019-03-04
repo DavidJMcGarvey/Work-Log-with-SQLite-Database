@@ -9,51 +9,66 @@ from peewee import *
 db = SqliteDatabase('work_entries.db')
 
 
+def red_err(message):
+    """Return error message with red font """
+    return "\33[91m" + message + "\33[0m"
+
+
 class Entry(Model):
-    """a subclass of model that collects entry info"""
-
-    def __init__(self):
-        super().__init__(name=entry_functions.entry_name(),
-                         date=entry_functions.entry_date(),
-                         time=entry_functions.entry_time(),
-                         note=entry_functions.entry_note()
-                         )
-
-    # name = entry_functions.entry_name()
-    # date = entry_functions.entry_date()
-    # time = entry_functions.entry_time()
-    # note = entry_functions.entry_note()
+    """a subclass of Model that collects entry info"""
+    def __init__(self, user, name, date, time, note):
+        super().__init__()
+        self.user = user
+        self.name = name
+        self.date = date
+        self.time = time
+        self.note = note
 
     class Meta:
         database = db
 
 
 def initialize():
+    """Opens connection to database, creates table, and closes"""
     db.connect()
     db.create_tables([Entry], safe=True)
     db.close()
 
 
-def clear():
+def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
+def welcome():
+    """Welcome message asking user's desired task"""
+    message = "Welcome, what would you like to do?"
+    print("="*len(message))
+    print(message)
+
+
 def start_menu():
-    """
-    Opens menu with user options
-    """
+    """Opens menu with user options"""
     active_entry = True
 
     while active_entry:
+        clear_screen()
+        welcome()
         print("\na) Add New Entry"
               "\nb) Search Existing Entry"
               "\nc) Quit Program\n")
         task = input("> ")
         if task.lower() == 'a':
-            Entry()
+            clear_screen()
+            Entry(user=entry_functions.entry_user(),
+                  name=entry_functions.entry_name(),
+                  date=entry_functions.entry_date(),
+                  time=entry_functions.entry_time(),
+                  note=entry_functions.entry_note(),)
         elif task.lower() == 'b':
+            clear_screen()
             search_functions.search_menu()
         elif task.lower() == 'c':
+            clear_screen()
             print("Thanks for using the work log!")
             active_entry = False
         else:
@@ -61,5 +76,5 @@ def start_menu():
 
 
 if __name__ == '__main__':
-    initialize()
     start_menu()
+    initialize()

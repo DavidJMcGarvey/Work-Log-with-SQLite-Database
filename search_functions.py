@@ -1,47 +1,38 @@
 """Search menu and search functions"""
+
+import os
 import work_log
 
 
 def red_err(message):
-    """
-    Return error message with red font
-    """
-    red_start = "\33[91m"
-    color_stop = "\33[0m"
-    return red_start + message + color_stop
+    """Return error message with red font """
+    return "\33[91m" + message + "\33[0m"
 
 
-def blue_row(task):
-    """
-    To entries, adds a white font against blue background :)
-    """
-    return "\33[37m\33[44m" + task + "\33[0m"
+def clear_screen():
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 
 def search_menu():
-    """
-    Opens menu with different options for searching entries
-    """
+    """Opens menu with different options for searching entries"""
+    clear_screen()
     while True:
         print("\nWhat would you like to search by?")
-        print("\na) By Date"
-              "\nb) By Minutes"
-              "\nc) By Exact Keyword"
-              "\nd) By Regex Pattern"
-              "\ne) Show All Entries"
-              "\nf) Return to Menu\n")
+        print("\na) By Employee"
+              "\nb) By Date"
+              "\nc) By Time Spent"
+              "\nd) By Keyword"
+              "\ne) Return to Menu\n")
         search_task = input("> ")
         if search_task.lower() == 'a':
-            search_date()
+            search_employee()
         elif search_task.lower() == 'b':
-            search_time()
+            search_date()
         elif search_task.lower() == 'c':
-            search_exact()
+            search_time()
         elif search_task.lower() == 'd':
-            search_pattern()
+            search_exact()
         elif search_task.lower() == 'e':
-            show_all()
-        elif search_task.lower() == 'f':
             return None
         else:
             print(red_err("That was not an option"))
@@ -49,6 +40,8 @@ def search_menu():
 
 def search_employee():
     """Search database by employee name"""
+    search = input("Please type desired employee's entry or entries. ")
+    return work_log.Entry.select().where(work_log.db.user.contains(search))
 
 
 def search_date():
