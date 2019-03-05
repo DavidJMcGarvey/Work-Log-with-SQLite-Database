@@ -6,7 +6,7 @@
 This Work Log program collects information from a user/employee regarding 
 a task and stores it in a Database using Sqlite.
 
-To begin program, type 'python work_log.py' into your computer's 
+To begin program, type **'python work_log.py'** into your computer's 
 Terminal or Console CLI.
 
 When program is run, user will be welcomed and given the following choices:
