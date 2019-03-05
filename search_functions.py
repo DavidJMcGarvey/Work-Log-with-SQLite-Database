@@ -10,6 +10,7 @@ def red_err(message):
 
 
 def clear_screen():
+    """Clear the screen"""
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
@@ -40,8 +41,8 @@ def search_menu():
 
 def search_employee():
     """Search database by employee name"""
-    search = input("Please type desired employee's entry or entries. ")
-    return work_log.Entry.select().where(work_log.db.user.contains(search))
+    search = input("Please type employee's name. ")
+    return work_log.Entry.select().where(work_log.Entry.user.contains(search))
 
 
 def search_date():
