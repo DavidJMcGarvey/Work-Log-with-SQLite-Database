@@ -16,13 +16,11 @@ def red_err(message):
 
 class Entry(Model):
     """a subclass of Model that collects entry info"""
-    def __init__(self, user, name, date, time, note):
-        super().__init__()
-        self.user = user
-        self.name = name
-        self.date = date
-        self.time = time
-        self.note = note
+    user = CharField()
+    task = CharField()
+    date = DateTimeField()
+    time = IntegerField()
+    note = TextField()
 
     class Meta:
         database = db
@@ -59,12 +57,7 @@ def start_menu():
               "\nc) Quit Program\n")
         task = input("> ")
         if task.lower() == 'a':
-            clear_screen()
-            Entry(user=entry_functions.entry_user(),
-                  name=entry_functions.entry_name(),
-                  date=entry_functions.entry_date(),
-                  time=entry_functions.entry_time(),
-                  note=entry_functions.entry_note(),)
+            initialize()
         elif task.lower() == 'b':
             clear_screen()
             search_functions.search_menu()
@@ -78,4 +71,3 @@ def start_menu():
 
 if __name__ == '__main__':
     start_menu()
-    initialize()
