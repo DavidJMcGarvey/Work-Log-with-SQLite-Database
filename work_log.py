@@ -1,6 +1,7 @@
 """Main page of program where user menu is activated"""
 
 import os
+import datetime
 import entry_functions
 import search_functions
 
@@ -16,10 +17,10 @@ def red_err(message):
 
 class Entry(Model):
     """a subclass of Model that collects entry info"""
-    user = CharField()
-    task = CharField()
-    date = DateTimeField()
-    time = IntegerField()
+    user = CharField(max_length=180)
+    task = CharField(max_length=180)
+    date = DateTimeField(default=datetime.datetime.now)
+    time = IntegerField(default=0)
     note = TextField()
 
     class Meta:
@@ -57,7 +58,7 @@ def start_menu():
               "\nc) Quit Program\n")
         task = input("> ")
         if task.lower() == 'a':
-            initialize()
+            Entry.create()
         elif task.lower() == 'b':
             clear_screen()
             search_functions.search_menu()
@@ -66,8 +67,9 @@ def start_menu():
             print("Thanks for using the work log!")
             active_entry = False
         else:
-            print("\nThat was not an option")
+            print(red_err("\nThat was not an option"))
 
 
 if __name__ == '__main__':
+    initialize()
     start_menu()
