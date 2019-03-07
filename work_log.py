@@ -1,5 +1,4 @@
 """Main page of program where user menu is activated"""
-
 import os
 import datetime
 import entry_functions
@@ -7,7 +6,7 @@ import search_functions
 
 from peewee import *
 
-db = SqliteDatabase('work_entries.db')
+db = SqliteDatabase('log_entries.db')
 
 
 def red_err(message):
@@ -42,7 +41,7 @@ def clear_screen():
 def welcome():
     """Welcome message asking user's desired task"""
     message = "Welcome, what would you like to do?"
-    print("="*len(message))
+    print(search_functions.blue_row("="*len(message)))
     print(message)
 
 
@@ -58,7 +57,15 @@ def start_menu():
               "\nc) Quit Program\n")
         task = input("> ")
         if task.lower() == 'a':
-            Entry.create()
+            clear_screen()
+            entries = {
+                'user': entry_functions.entry_user(),
+                'task': entry_functions.entry_name(),
+                'date': entry_functions.entry_date(),
+                'time': entry_functions.entry_time(),
+                'note': entry_functions.entry_note(),
+            }
+            Entry.create(**entries)
         elif task.lower() == 'b':
             clear_screen()
             search_functions.search_menu()
