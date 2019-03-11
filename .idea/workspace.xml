@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a201afe0-b840-46f3-8c6a-250e43af2746" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/log_entries.db" beforeDir="false" afterPath="$PROJECT_DIR$/log_entries.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/search_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/search_functions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/work_log.py" beforeDir="false" afterPath="$PROJECT_DIR$/work_log.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,11 +38,10 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/work_log.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="337">
-                  <caret line="45" selection-start-line="45" selection-end-line="45" />
+                <state relative-caret-position="388">
+                  <caret line="47" column="17" lean-forward="true" selection-start-line="47" selection-start-column="17" selection-end-line="47" selection-end-column="17" />
                   <folding>
                     <element signature="e#57#66#0" expanded="true" />
-                    <element signature="e#1373#1728#0" />
                   </folding>
                 </state>
               </provider>
@@ -63,11 +63,11 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/search_functions.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="798">
-                  <caret line="42" column="26" selection-start-line="42" selection-start-column="26" selection-end-line="42" selection-end-column="26" />
+                <state relative-caret-position="443">
+                  <caret line="69" lean-forward="true" selection-start-line="69" selection-end-line="69" />
                   <folding>
                     <element signature="e#40#49#0" expanded="true" />
-                    <marker date="1552338340929" expanded="true" signature="2884:2926" ph="..." />
+                    <marker date="1552339078100" expanded="true" signature="2885:2927" ph="..." />
                   </folding>
                 </state>
               </provider>
@@ -186,12 +186,12 @@
       <workItem from="1551398958254" duration="17041000" />
       <workItem from="1551811241675" duration="8782000" />
       <workItem from="1551845467665" duration="294000" />
-      <workItem from="1551890873346" duration="32045000" />
+      <workItem from="1551890873346" duration="32689000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="96626000" />
+    <option name="totallyTimeSpent" value="97270000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -291,22 +291,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/work_log.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="45" selection-start-line="45" selection-end-line="45" />
+        <state relative-caret-position="388">
+          <caret line="47" column="17" lean-forward="true" selection-start-line="47" selection-start-column="17" selection-end-line="47" selection-end-column="17" />
           <folding>
             <element signature="e#57#66#0" expanded="true" />
-            <element signature="e#1373#1728#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/search_functions.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="798">
-          <caret line="42" column="26" selection-start-line="42" selection-start-column="26" selection-end-line="42" selection-end-column="26" />
+        <state relative-caret-position="443">
+          <caret line="69" lean-forward="true" selection-start-line="69" selection-end-line="69" />
           <folding>
             <element signature="e#40#49#0" expanded="true" />
-            <marker date="1552338340929" expanded="true" signature="2884:2926" ph="..." />
+            <marker date="1552339078100" expanded="true" signature="2885:2927" ph="..." />
           </folding>
         </state>
       </provider>

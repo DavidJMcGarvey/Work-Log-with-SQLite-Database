@@ -41,7 +41,7 @@ def clear_screen():
 def welcome():
     """Welcome message asking user's desired task"""
     message = "Welcome, what would you like to do?"
-    print(search_functions.blue_row("="*len(message)))
+    print(search_functions.blue_row("="*36))
     print(message)
 
 
@@ -70,7 +70,9 @@ def start_menu():
             search_functions.search_menu()
         elif task.lower() == 'c':
             clear_screen()
-            print("Thanks for using the work log!")
+            print("\n" + search_functions.blue_row("*"*7) +
+                  " Thanks for using the work log! "
+                  + search_functions.blue_row("*"*7)+ "\n")
             active_entry = False
         else:
             clear_screen()

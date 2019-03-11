@@ -49,10 +49,10 @@ def search_menu():
 def list_entries(entries):
     """Takes search query and provides list of dates associated with entries"""
     print("\nPlease choose from the following:")
-    print("\n" + blue_row("> " * 3) + "\n")
+    print("\n" + blue_row(" > "*3) + "\n")
     for entry in entries[:]:
-        print(blue_row("> " + entry.user + " --> " + str(entry.date)[:-9]))
-    print("\n" + blue_row("> "*3))
+        print(blue_row(" > " + entry.user + " --> " + str(entry.date)[:-9]))
+    print("\n" + blue_row(" > "*3))
     list_search(entries)
 
 
