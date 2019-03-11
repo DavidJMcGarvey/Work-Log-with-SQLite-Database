@@ -23,7 +23,7 @@ def search_menu():
     clear_screen()
     message = "What would you like to search by?"
     while True:
-        print(blue_row("="*len(message)))
+        print(blue_row("="*36))
         print(message)
         print("\na) By Employee"
               "\nb) By Date"
@@ -40,6 +40,7 @@ def search_menu():
         elif search_task.lower() == 'd':
             search_exact()
         elif search_task.lower() == 'e':
+            clear_screen()
             return None
         else:
             print(red_err("That was not an option"))
@@ -47,61 +48,54 @@ def search_menu():
 
 def list_entries(entries):
     """Takes search query and provides list of dates associated with entries"""
-    print("\nPlease choose from the following:\n")
+    print("\nPlease choose from the following:")
+    print("\n" + blue_row("> " * 3) + "\n")
     for entry in entries[:]:
-        print("{} > " + entry.user + " --> " + str(entry.date)[:-9])
-    print("\n")
-    search_list(entries)
+        print(blue_row("> " + entry.user + " --> " + str(entry.date)[:-9]))
+    print("\n" + blue_row("> "*3))
+    list_search(entries)
 
 
-def search_list(entries):
+def list_search(entries):
     """Takes list of entries and compares against """
-    action = input("Type employee name AND date from "
-                   "list separated by a space.\n"
-                   "Enter 'q' anytime to quit: ")
+    action = input("\n(Enter 'Q' anytime to QUIT)"
+                   "\nType Employee Name AND Date from "
+                   "list separated by a space: ")
+    # import pdb; pdb.set_tarace()
     results = []
     for entry in entries:
-        if action.lower() == 'q':
+        if action.upper() == 'Q':
             clear_screen()
             return None
-        elif action == entry.user + " " + str(entry.date)[:-9]:
-            result = entry
-            results.append(entry)
-        else:
-            print("Please select entry from list by typing "
-                  "name and date separated by a space.")
 
-    if result:
-        print_entry(entry)
+        elif action == entry.user + " " + str(entry.date)[:-9]:
+            results.append(entry)
+            result = entry
+            clear_screen()
+            print("Your search: {}".format(action))
+            print_entries(results)
+        elif action != entry.user + " " + str(entry.date)[:-9] and results == []:
+            result = entry
+
+    if not result:
+        print(red_err("Please select entry from list by typing "
+                      "name and date separated by a space."))
 
 
 def print_entry(entry):
-    print("\n" + blue_row("User Name: " + entry.user))
+    print("\n" + blue_row(" > "*3) + "\n")
+    print(blue_row("User Name: " + entry.user))
     print(blue_row("Task Name: " + entry.task))
     print(blue_row("Task Date: " + str(entry.date)[:-9]))
     print(blue_row("Task Minutes: " + str(entry.time)))
     print(blue_row("Task Notes: " + entry.note))
-    print(blue_row("=" * 34) + "\n")
+    print("\n" + blue_row(" > "*3) + "\n")
 
 
 def print_entries(entries):
     """Prints all entries"""
     for entry in entries:
         print_entry(entry)
-
-
-# def display_entries(search_query=None):
-#     """Take entry from database and display it"""
-#     entries = Entry.select()
-#
-#     results = []
-#     for entry in entries:
-#         if entry.user == search_query:
-#             results.append(entry)
-#             print_entry(entry)
-#
-#         if entry.user != search_query:
-#             print(red_err("Sorry, no match found."))
 
 
 def search_employee():
@@ -140,7 +134,7 @@ def search_date():
             result = None
 
     if result:
-        print_entries(results)
+        list_entries(results)
     else:
         print(red_err("\nSorry, date not found. Please try again."))
 
