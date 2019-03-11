@@ -46,14 +46,33 @@ def search_menu():
 
 
 def list_entries(entries):
-    """Takes search query and provides list of dates asscoiated with entries"""
-    print("\nHere are employees who have made an entry:\n")
-    for entry in entries:
-        print("> " + entry.user)
-    action = input("What would you like to do next? Enter 'q' anytime to quit.")
-    if action.lower() != 'q':
-        print("Made it this far...")
+    """Takes search query and provides list of dates associated with entries"""
+    print("\nPlease choose from the following:\n")
+    for entry in entries[:]:
+        print("{} > " + entry.user + " --> " + str(entry.date)[:-9])
+    print("\n")
+    search_list(entries)
 
+
+def search_list(entries):
+    """Takes list of entries and compares against """
+    action = input("Type employee name AND date from "
+                   "list separated by a space.\n"
+                   "Enter 'q' anytime to quit: ")
+    results = []
+    for entry in entries:
+        if action.lower() == 'q':
+            clear_screen()
+            return None
+        elif action == entry.user + " " + str(entry.date)[:-9]:
+            result = entry
+            results.append(entry)
+        else:
+            print("Please select entry from list by typing "
+                  "name and date separated by a space.")
+
+    if result:
+        print_entry(entry)
 
 
 def print_entry(entry):
@@ -156,15 +175,15 @@ def search_exact():
 
     results = []
     for entry in entries:
-        if search in entry.task:
+        if search.lower() in entry.task.lower():
             result = entry
             results.append(entry)
-        elif search in entry.note:
+        elif search.lower() in entry.note.lower():
             result = entry
             results.append(entry)
-        elif search != entry.task and results == []:
+        elif search.lower() != entry.task.lower() and results == []:
             result = None
-        elif search != entry.note and results == []:
+        elif search.lower() != entry.note.lower() and results == []:
             result = None
 
     if result:

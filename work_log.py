@@ -48,9 +48,8 @@ def welcome():
 def start_menu():
     """Opens menu with user options"""
     active_entry = True
-
+    clear_screen()
     while active_entry:
-        clear_screen()
         welcome()
         print("\na) Add New Entry"
               "\nb) Search Existing Entry"
@@ -74,6 +73,7 @@ def start_menu():
             print("Thanks for using the work log!")
             active_entry = False
         else:
+            clear_screen()
             print(red_err("\nThat was not an option"))
 
 
