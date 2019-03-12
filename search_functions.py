@@ -61,7 +61,6 @@ def list_search(entries):
     action = input("\n(Enter 'Q' anytime to QUIT)"
                    "\nType Employee Name AND Date from "
                    "list separated by a space: ")
-    # import pdb; pdb.set_tarace()
     results = []
     for entry in entries:
         if action.upper() == 'Q':
@@ -99,7 +98,11 @@ def print_entries(entries):
 
 
 def search_employee():
-    """Search database by employee name"""
+    """Search database by employee name
+
+    >>>
+
+    """
     search = input("Please type desired employee: ")
     entries = Entry.select()
 
