@@ -3,12 +3,12 @@ import datetime
 
 
 def red_err(message):
-    """Return error message with red font """
+    """Return error message with red font"""
     return "\33[91m" + message + "\33[0m"
 
 
 def entry_user():
-    """User"""
+    """Returns user name and doesn't allow for empty string"""
     print("Hello, valued employee.")
     while True:
         username = input("What is your name? ")
@@ -18,7 +18,7 @@ def entry_user():
             return username
 
 
-def entry_name():
+def entry_task():
     """Returns a task name and doesn't allow for empty string"""
     while True:
         task_name = input("What is the title of the task? ")
@@ -67,4 +67,8 @@ def get_datetime(date):
     fmt = '%Y-%m-%d'
     return datetime.datetime.strptime(date, fmt)
 
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()
 

@@ -1,4 +1,13 @@
-"""Main page of program where user menu is activated"""
+"""Work Log w/ Database
+Main page of program where user menu is activated.
+Program can add a user entry containing: user name, task name, date, time, and
+notes and store it in a database.
+User can search the database entries by all categories listed above.
+
+Created: 2019-03-04
+Updated: 2019-03-12
+Author: David McGarvey"""
+
 import os
 import datetime
 import entry_functions
@@ -59,7 +68,7 @@ def start_menu():
             clear_screen()
             entries = {
                 'user': entry_functions.entry_user(),
-                'task': entry_functions.entry_name(),
+                'task': entry_functions.entry_task(),
                 'date': entry_functions.entry_date(),
                 'time': entry_functions.entry_time(),
                 'note': entry_functions.entry_note(),

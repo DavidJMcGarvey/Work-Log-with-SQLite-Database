@@ -98,11 +98,7 @@ def print_entries(entries):
 
 
 def search_employee():
-    """Search database by employee name
-
-    >>>
-
-    """
+    """Search database by employee name"""
     search = input("Please type desired employee: ")
     entries = Entry.select()
 
