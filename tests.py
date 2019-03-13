@@ -63,6 +63,9 @@ class SearchTests(unittest.TestCase):
         date = search_functions.search_date()
         self.assertNotIn(self.search, date)
 
+    def test_print(self):
+        self.assertIn()
+
 
 if __name__ == '__main__':
     unittest.main()

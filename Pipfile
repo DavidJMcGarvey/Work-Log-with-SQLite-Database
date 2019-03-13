@@ -9,6 +9,8 @@ pytest = "*"
 [packages]
 requests = "*"
 matplotlib = "==2.2.2"
+peewee = "*"
+coverage = "*"
 
 [requires]
 python_version = "3.7"
