@@ -82,6 +82,7 @@ def list_search(entries):
 
 
 def print_entry(entry):
+    """Prints entry in readable format"""
     print("\n" + blue_row(" > "*3) + "\n")
     print(blue_row("User Name: " + entry.user))
     print(blue_row("Task Name: " + entry.task))
@@ -185,6 +186,3 @@ def search_exact():
         print(red_err("\nSorry, no keyword found. Please try again.\n"))
 
     return None
-
-
-

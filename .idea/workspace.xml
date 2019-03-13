@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a201afe0-b840-46f3-8c6a-250e43af2746" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/entry_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/entry_functions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/search_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/search_functions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests.py" afterDir="false" />
@@ -36,11 +37,11 @@
     <splitter split-orientation="horizontal" split-proportion="0.4923611">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/work_log.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="289">
-                  <caret line="34" column="21" lean-forward="true" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
+                <state relative-caret-position="152">
+                  <caret line="8" column="25" lean-forward="true" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
                   <folding>
                     <element signature="e#56#65#0" expanded="true" />
                   </folding>
@@ -48,14 +49,14 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/search_functions.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1808">
-                  <caret line="110" column="11" lean-forward="true" selection-start-line="110" selection-start-column="11" selection-end-line="110" selection-end-column="11" />
+                <state relative-caret-position="691">
+                  <caret line="188" selection-start-line="188" selection-end-line="188" />
                   <folding>
                     <element signature="e#39#48#0" expanded="true" />
-                    <marker date="1552416289254" expanded="true" signature="2850:2892" ph="..." />
+                    <marker date="1552439059450" expanded="true" signature="2892:2934" ph="..." />
                   </folding>
                 </state>
               </provider>
@@ -65,20 +66,20 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/entry_functions.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="95">
-                  <caret line="5" column="41" selection-start-line="5" selection-start-column="41" selection-end-line="5" selection-end-column="41" />
+                <state relative-caret-position="1292">
+                  <caret line="68" lean-forward="true" selection-start-line="68" selection-end-line="68" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/tests.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="577">
-                  <caret line="63" column="43" selection-start-line="63" selection-start-column="43" selection-end-line="63" selection-end-column="43" />
+                <state relative-caret-position="691">
+                  <caret line="68" selection-start-line="68" selection-end-line="68" />
                   <folding>
                     <element signature="e#46#61#0" expanded="true" />
                   </folding>
@@ -115,10 +116,10 @@
         <option value="$PROJECT_DIR$/entry.py" />
         <option value="$PROJECT_DIR$/test_entry.py" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/search_functions.py" />
-        <option value="$PROJECT_DIR$/entry_functions.py" />
         <option value="$PROJECT_DIR$/work_log.py" />
         <option value="$PROJECT_DIR$/tests.py" />
+        <option value="$PROJECT_DIR$/search_functions.py" />
+        <option value="$PROJECT_DIR$/entry_functions.py" />
       </list>
     </option>
   </component>
@@ -199,12 +200,12 @@
       <workItem from="1551811241675" duration="8782000" />
       <workItem from="1551845467665" duration="294000" />
       <workItem from="1551890873346" duration="34281000" />
-      <workItem from="1552369331649" duration="16396000" />
+      <workItem from="1552369331649" duration="17544000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="115258000" />
+    <option name="totallyTimeSpent" value="116406000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -219,7 +220,7 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.17430556" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17430556" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -295,13 +296,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/entry_functions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="41" selection-start-line="5" selection-start-column="41" selection-end-line="5" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/typeshed/stdlib/3/unittest/__init__.pyi">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="275">
@@ -309,21 +303,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/search_functions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1808">
-          <caret line="110" column="11" lean-forward="true" selection-start-line="110" selection-start-column="11" selection-end-line="110" selection-end-column="11" />
-          <folding>
-            <element signature="e#39#48#0" expanded="true" />
-            <marker date="1552416289254" expanded="true" signature="2850:2892" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/work_log.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="34" column="21" lean-forward="true" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
+        <state relative-caret-position="152">
+          <caret line="8" column="25" lean-forward="true" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
           <folding>
             <element signature="e#56#65#0" expanded="true" />
           </folding>
@@ -332,11 +315,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tests.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="577">
-          <caret line="63" column="43" selection-start-line="63" selection-start-column="43" selection-end-line="63" selection-end-column="43" />
+        <state relative-caret-position="691">
+          <caret line="68" selection-start-line="68" selection-end-line="68" />
           <folding>
             <element signature="e#46#61#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/search_functions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="691">
+          <caret line="188" selection-start-line="188" selection-end-line="188" />
+          <folding>
+            <element signature="e#39#48#0" expanded="true" />
+            <marker date="1552439059450" expanded="true" signature="2892:2934" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/entry_functions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1292">
+          <caret line="68" lean-forward="true" selection-start-line="68" selection-end-line="68" />
         </state>
       </provider>
     </entry>

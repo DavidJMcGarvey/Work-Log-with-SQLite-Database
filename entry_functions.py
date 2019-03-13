@@ -66,9 +66,3 @@ def get_datetime(date):
     """Returns user given date as a datetime object"""
     fmt = '%Y-%m-%d'
     return datetime.datetime.strptime(date, fmt)
-
-
-if __name__ == '__main__':
-    import doctest
-    doctest.testmod()
-

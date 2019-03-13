@@ -1,7 +1,7 @@
 """Work Log w/ Database
-Main page of program where user menu is activated.
-Program can add a user entry containing: user name, task name, date, time, and
-notes and store it in a database.
+Main page of program where menu is activated.
+User can add an entry containing: user name, task name, date, time, and
+optional notes and store it in a database.
 User can search the database entries by all categories listed above.
 
 Created: 2019-03-04
