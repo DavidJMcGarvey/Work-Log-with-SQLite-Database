@@ -7,8 +7,6 @@ verify_ssl = true
 pytest = "*"
 
 [packages]
-requests = "*"
-matplotlib = "==2.2.2"
 peewee = "*"
 coverage = "*"
 
