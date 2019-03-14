@@ -8,19 +8,14 @@ Created: 2019-03-04
 Updated: 2019-03-12
 Author: David McGarvey"""
 
-import os
 import datetime
+import display
 import entry_functions
 import search_functions
 
 from peewee import *
 
 db = SqliteDatabase('log_entries.db')
-
-
-def red_err(message):
-    """Return error message with red font """
-    return "\33[91m" + message + "\33[0m"
 
 
 class Entry(Model):
@@ -42,22 +37,17 @@ def initialize():
     db.close()
 
 
-def clear_screen():
-    """Clear the screen"""
-    os.system('cls' if os.name == 'nt' else 'clear')
-
-
 def welcome():
     """Welcome message asking user's desired task"""
     message = "Welcome, what would you like to do?"
-    print(search_functions.blue_row("="*36))
+    print(display.blue_row("="*36))
     print(message)
 
 
 def start_menu():
     """Opens menu with user options"""
     active_entry = True
-    clear_screen()
+    display.clear_screen()
     while active_entry:
         welcome()
         print("\na) Add New Entry"
@@ -65,7 +55,7 @@ def start_menu():
               "\nc) Quit Program\n")
         task = input("> ")
         if task.lower() == 'a':
-            clear_screen()
+            display.clear_screen()
             entries = {
                 'user': entry_functions.entry_user(),
                 'task': entry_functions.entry_task(),
@@ -75,17 +65,17 @@ def start_menu():
             }
             Entry.create(**entries)
         elif task.lower() == 'b':
-            clear_screen()
+            display.clear_screen()
             search_functions.search_menu()
         elif task.lower() == 'c':
-            clear_screen()
-            print("\n" + search_functions.blue_row("*"*7) +
+            display.clear_screen()
+            print("\n" + display.blue_row("*"*7) +
                   " Thanks for using the work log! "
-                  + search_functions.blue_row("*"*7)+ "\n")
+                  + display.blue_row("*"*7)+ "\n")
             active_entry = False
         else:
-            clear_screen()
-            print(red_err("\nThat was not an option"))
+            display.clear_screen()
+            print(display.red_err("\nThat was not an option"))
 
 
 if __name__ == '__main__':

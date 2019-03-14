@@ -1,24 +1,25 @@
 """Script to test program using a TestCase"""
+import datetime
+import display
 import unittest
 import entry_functions
 import search_functions
 import work_log
 
+from unittest import mock
+
 
 class EntryTests(unittest.TestCase):
     def setUp(self):
         self.entry = work_log.Entry()
-        self.clear_work = work_log.clear_screen()
-        self.clear_search = search_functions.clear_screen()
+        self.clear_work = display.clear_screen()
         self.welcome = work_log.welcome()
         self.initialize = work_log.initialize()
         self.print_entry = search_functions.print_entry(self.entry)
         self.print_entries = search_functions.print_entries([self.entry])
         self.dates = entry_functions.get_datetime(str(self.entry.date)[:-16])
-        self.red_work = work_log.red_err("Test")
-        self.red_entry = entry_functions.red_err("Test")
-        self.red_search = search_functions.red_err("Test")
-        self.blue = search_functions.blue_row("Test")
+        self.red = display.red_err("Test")
+        self.blue = display.blue_row("Test")
 
     def test_create_unique(self):
         self.assertNotEqual(self.entry, work_log.Entry())
@@ -84,10 +85,10 @@ class EntryTests(unittest.TestCase):
         self.assertIn(self.entry.note, work_log.Entry.note)
 
     def test_note_not_user(self):
-        self.assertIsNot(self.entry.note, self.entry.user)
+        self.assertIsNone(self.entry.note, self.entry.user)
 
     def test_note_not_task(self):
-        self.assertIsNot(self.entry.note, self.entry.task)
+        self.assertIsNone(self.entry.note, self.entry.task)
 
     def test_note_not_date(self):
         self.assertIsNone(self.entry.note, self.entry.date)
@@ -95,11 +96,8 @@ class EntryTests(unittest.TestCase):
     def test_note_not_time(self):
         self.assertIsNot(self.entry.note, self.entry.time)
 
-    def test_clear_screen_work_log(self):
-        self.assertEqual(self.clear_work, work_log.clear_screen())
-
-    def test_clear_screen_search_functions(self):
-        self.assertEqual(self.clear_search, search_functions.clear_screen())
+    def test_clear_screen(self):
+        self.assertEqual(self.clear_work, display.clear_screen())
 
     def test_welcome(self):
         self.assertIs(self.welcome, work_log.welcome())
@@ -122,17 +120,56 @@ class EntryTests(unittest.TestCase):
         self.assertIsNot(self.dates, entry_functions.get_datetime(
             str(self.entry.date)[:-16]))
 
-    def test_red_work(self):
-        self.assertEqual(self.red_work, work_log.red_err("Test"))
-
-    def test_red_entry(self):
-        self.assertEqual(self.red_entry, entry_functions.red_err("Test"))
-
-    def test_red_search(self):
-        self.assertEqual(self.red_search, search_functions.red_err("Test"))
+    def test_red(self):
+        self.assertEqual(self.red, display.red_err("Test"))
 
     def test_blue(self):
-        self.assertEqual(self.blue, search_functions.blue_row("Test"))
+        self.assertEqual(self.blue, display.blue_row("Test"))
+
+
+class InputTests(unittest.TestCase):
+    def setUp(self):
+        self.entry = work_log.Entry()
+
+    @mock.patch('builtins.input', side_effect=['[self.entry]'])
+    def test_list_entries(self, mock_input):
+        result = search_functions.list_entries([self.entry])
+        self.assertNotEqual(result, '[self.entry]')
+
+    @mock.patch('builtins.input', side_effect=['Q'])
+    def test_list_search(self, mock_input):
+        result = search_functions.list_search([self.entry])
+        self.assertNotEqual(result, "Please try again with a task name")
+
+    @mock.patch('builtins.input', side_effect=['Jeanie'])
+    def test_entry_user(self, mock_input):
+        result = entry_functions.entry_user()
+        self.assertEqual(result, 'Jeanie')
+
+    @mock.patch('builtins.input', side_effect=['Python'])
+    def test_entry_task(self, mock_input):
+        result = entry_functions.entry_task()
+        self.assertEqual(result, 'Python')
+
+    @mock.patch('builtins.input', side_effect=['2011-01-01'])
+    def test_entry_date(self, mock_input):
+        result = entry_functions.entry_date()
+        self.assertEqual(result, datetime.datetime(2011, 1, 1, 0, 0))
+
+    @mock.patch('builtins.input', side_effect=['(No Notes)'])
+    def test_entry_note(self, mock_input):
+        result = entry_functions.entry_note()
+        self.assertEqual(result, '(No Notes)')
+
+    @mock.patch('builtins.input', side_effect=['12'])
+    def test_search_time(self, mock_input):
+        result = search_functions.search_time()
+        self.assertNotEqual(result, '12')
+
+    @mock.patch('builtins.input', side_effect=['python'])
+    def test_search_exact(self, mock_input):
+        result = search_functions.search_exact()
+        self.assertNotEqual(result, 'python')
 
 
 if __name__ == '__main__':

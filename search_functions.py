@@ -1,30 +1,15 @@
 """Search menu and search functions"""
-import os
+import display
+
 from work_log import Entry
-import doctest
-
-
-def red_err(message):
-    """Return error message with red font """
-    return "\33[91m" + message + "\33[0m"
-
-
-def blue_row(message):
-    """To entries, adds a white font against blue background :)"""
-    return "\33[37m\33[44m" + message + "\33[0m"
-
-
-def clear_screen():
-    """Clear the screen"""
-    os.system('cls' if os.name == 'nt' else 'clear')
 
 
 def search_menu():
     """Opens menu with different options for searching entries"""
-    clear_screen()
+    display.clear_screen()
     message = "What would you like to search by?"
     while True:
-        print(blue_row("="*36))
+        print(display.blue_row("="*36))
         print(message)
         print("\na) By Employee"
               "\nb) By Date"
@@ -41,20 +26,20 @@ def search_menu():
         elif search_task.lower() == 'd':
             search_exact()
         elif search_task.lower() == 'e':
-            clear_screen()
+            display.clear_screen()
             return None
         else:
-            print(red_err("That was not an option"))
+            print(display.red_err("That was not an option"))
 
 
 def list_entries(entries):
     """Takes search query and provides list of dates linked to entries"""
     print("\nPlease choose from the following:")
-    print("\n" + blue_row(" > "*3) + "\n")
+    print("\n" + display.blue_row(" > "*3) + "\n")
     for entry in entries[:]:
-        print(blue_row(" > " + str(entry.user) + " --> "
+        print(display.blue_row(" > " + str(entry.user) + " --> "
                        + str(entry.date)[:-9]))
-    print("\n" + blue_row(" > "*3))
+    print("\n" + display.blue_row(" > "*3))
     list_search(entries)
 
 
@@ -66,33 +51,33 @@ def list_search(entries):
     results = []
     for entry in entries:
         if action.upper() == 'Q':
-            clear_screen()
+            display.clear_screen()
             return None
 
-        elif action == entry.user + " " + str(entry.date)[:-9]:
+        elif action == str(entry.user) + " " + str(entry.date)[:-9]:
             results.append(entry)
             result = entry
-            clear_screen()
+            display.clear_screen()
             print("Your search: {}".format(action))
             print_entries(results)
-        elif action != entry.user + " " + str(entry.date)[:-9]\
+        elif action != str(entry.user) + " " + str(entry.date)[:-9]\
                 and results == []:
             result = entry
 
     if not result:
-        print(red_err("Please select entry from list by typing "
+        print(display.red_err("Please select entry from list by typing "
                       "name and date separated by a space."))
 
 
 def print_entry(entry):
     """Prints entry in readable format"""
-    print("\n" + blue_row(" > "*3) + "\n")
-    print(blue_row("User Name: " + str(entry.user)))
-    print(blue_row("Task Name: " + str(entry.task)))
-    print(blue_row("Task Date: " + str(entry.date)[:-9]))
-    print(blue_row("Task Minutes: " + str(entry.time)))
-    print(blue_row("Task Notes: " + str(entry.note)))
-    print("\n" + blue_row(" > "*3) + "\n")
+    print("\n" + display.blue_row(" > "*3) + "\n")
+    print(display.blue_row("User Name: " + str(entry.user)))
+    print(display.blue_row("Task Name: " + str(entry.task)))
+    print(display.blue_row("Task Date: " + str(entry.date)[:-9]))
+    print(display.blue_row("Task Minutes: " + str(entry.time)))
+    print(display.blue_row("Task Notes: " + str(entry.note)))
+    print("\n" + display.blue_row(" > "*3) + "\n")
 
 
 def print_entries(entries):
@@ -117,7 +102,7 @@ def search_employee():
     if result:
         list_entries(results)
     else:
-        print(red_err("\nSorry, no match found. Please try again.\n"))
+        print(display.red_err("\nSorry, no match found. Please try again.\n"))
 
     return None
 
@@ -139,7 +124,7 @@ def search_date():
     if result:
         list_entries(results)
     else:
-        print(red_err("\nSorry, date not found. Please try again."))
+        print(display.red_err("\nSorry, date not found. Please try again."))
 
     return None
 
@@ -160,7 +145,7 @@ def search_time():
     if result:
         print_entries(results)
     else:
-        print(red_err("\nSorry, no match found. Please try again.\n"))
+        print(display.red_err("\nSorry, no match found. Please try again.\n"))
 
     return None
 
@@ -186,6 +171,6 @@ def search_exact():
     if result:
         print_entries(results)
     else:
-        print(red_err("\nSorry, no keyword found. Please try again.\n"))
+        print(display.red_err("\nSorry, no keyword found. Please try again.\n"))
 
     return None
