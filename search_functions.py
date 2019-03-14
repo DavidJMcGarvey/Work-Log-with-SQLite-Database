@@ -1,6 +1,7 @@
 """Search menu and search functions"""
 import os
 from work_log import Entry
+import doctest
 
 
 def red_err(message):
@@ -47,11 +48,12 @@ def search_menu():
 
 
 def list_entries(entries):
-    """Takes search query and provides list of dates associated with entries"""
+    """Takes search query and provides list of dates linked to entries"""
     print("\nPlease choose from the following:")
     print("\n" + blue_row(" > "*3) + "\n")
     for entry in entries[:]:
-        print(blue_row(" > " + entry.user + " --> " + str(entry.date)[:-9]))
+        print(blue_row(" > " + str(entry.user) + " --> "
+                       + str(entry.date)[:-9]))
     print("\n" + blue_row(" > "*3))
     list_search(entries)
 
@@ -73,7 +75,8 @@ def list_search(entries):
             clear_screen()
             print("Your search: {}".format(action))
             print_entries(results)
-        elif action != entry.user + " " + str(entry.date)[:-9] and results == []:
+        elif action != entry.user + " " + str(entry.date)[:-9]\
+                and results == []:
             result = entry
 
     if not result:
@@ -84,11 +87,11 @@ def list_search(entries):
 def print_entry(entry):
     """Prints entry in readable format"""
     print("\n" + blue_row(" > "*3) + "\n")
-    print(blue_row("User Name: " + entry.user))
-    print(blue_row("Task Name: " + entry.task))
+    print(blue_row("User Name: " + str(entry.user)))
+    print(blue_row("Task Name: " + str(entry.task)))
     print(blue_row("Task Date: " + str(entry.date)[:-9]))
     print(blue_row("Task Minutes: " + str(entry.time)))
-    print(blue_row("Task Notes: " + entry.note))
+    print(blue_row("Task Notes: " + str(entry.note)))
     print("\n" + blue_row(" > "*3) + "\n")
 
 
