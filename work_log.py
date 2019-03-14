@@ -5,7 +5,7 @@ optional notes and store it in a database.
 User can search the database entries by all categories listed above.
 
 Created: 2019-03-04
-Updated: 2019-03-12
+Updated: 2019-03-14
 Author: David McGarvey"""
 
 import datetime
