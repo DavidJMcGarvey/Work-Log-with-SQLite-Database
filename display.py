@@ -2,9 +2,9 @@
 import os
 
 
-def red_err(message):
-    """Return error message with red font"""
-    return "\33[91m" + message + "\33[0m"
+def clear_screen():
+    """Clear the screen"""
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 
 def blue_row(message):
@@ -12,8 +12,8 @@ def blue_row(message):
     return "\33[37m\33[44m" + message + "\33[0m"
 
 
-def clear_screen():
-    """Clear the screen"""
-    os.system('cls' if os.name == 'nt' else 'clear')
+def red_err(message):
+    """Return error message with red font"""
+    return "\33[91m" + message + "\33[0m"
 
 

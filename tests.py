@@ -1,9 +1,9 @@
 """Script to test program using a TestCase"""
 import datetime
 import display
-import unittest
 import entry_functions
 import search_functions
+import unittest
 import work_log
 
 from unittest import mock
